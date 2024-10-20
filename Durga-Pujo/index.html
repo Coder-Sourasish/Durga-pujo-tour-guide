@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Bankura</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <style>
+        /* Style the play button */
+        
+        #playButton {
+            background-color: #0bcff1;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            color: #333;
+        }
+        /* Hide audio controls, but let the button control it */
+        
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+
+<body onload='if (window.location.href.substr(window.location.href.length - 6) == "#about") { introAboutLogoTransition(); }'>
+    <!--navbar-->
+    <nav class="navbar glass" style="height: 70px">
+        <span><a href="#home" style="display: flex; align-items: center"
+                    ><img
+                        class="img2"
+                        src="./img/mountain.png"
+                        width="40"
+                        style="margin: -25px -10px -25px -20px"
+                    />
+                    <h1 class="logo">&nbsp;দুর্গোৎসব ২০২৪</h1></a
+                ></span>
+        <ul class="nav-links">
+            <li>
+                <a href="#home" id="pri" class="active cir_border">Home</a>
+            </li>
+            <li><a href="#events" id="sec" class="cir_border">Events</a></li>
+            <li>
+                <a href="#explore" id="tri" class="cir_border">Explore</a>
+            </li>
+            <li>
+                <a href="#tours" id="quad" class="cir_border">Tours</a>
+            </li>
+            <li><a href="#about" id="quint" class="cir_border">About</a></li>
+
+            <li>
+                <a href="#contact" id="hept" class="cir_border">Contact</a>
+            </li>
+
+            <li>
+                <div>
+                    <input type="checkbox" class="checkbox dark" id="checkbox" />
+                    <label for="checkbox" class="label">
+                            <i class="fa fa-moon-o"></i>
+                            <i class="fa fa-sun-o"></i>
+                            <div class="ball"></div>
+                        </label>
+                </div>
+            </li>
+        </ul>
+        <img src="./img/menu-btn.png" alt="" class="menu-btn" />
+    </nav>
+    <!--navbar-->
+
+
+    <header id="home">
+        <div class="header-content">
+            <h2 id="quote">Explore the colourful Festive season in Bankura </h2>
+            <div class="line"></div>
+            <h1 style="color:rgb(5, 230, 238)">শারদোৎসব ২০২৪</h1>
+            <a href="#about" class="ctn" onclick='removeall(); $("#quad").css("border", "2px solid whitesmoke"); $("#quad").css("border-radius", "20px");'>Learn more</a>
+        </div>
+    </header>
+
+    <!-- Audio element with controls -->
+    <audio id="backgroundMusic" loop>
+    <source src="videoplayback.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+    <!-- Play button -->
+    <center><button id="playButton">Play Music</button>
+
+
+        <p>Click the button to play the background music!</p>
+    </center>
+
+    <script>
+        // JavaScript to handle the play button
+        const playButton = document.getElementById('playButton');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        //To Control the volume of the music 
+        backgroundMusic.volume = 0.2;
+        playButton.addEventListener('click', () => {
+            if (backgroundMusic.paused) {
+                backgroundMusic.play();
+                playButton.textContent = 'Pause Music';
+            } else {
+                backgroundMusic.pause();
+                playButton.textContent = 'Play Music';
+            }
+        });
+    </script>
+
+    <!--Events-->
+    <section class="events" id="events">
+        <div class="container">
+            <div class="title">
+                <h1 class="dark">দেবীর দোলায় আগমন: ফল বৃষ্টি <br> দেবীর ঘোটকে গমন: ফল খরা</h1>
+                <div class="line"></div>
+            </div>
+            <div class="row">
+                <article class="card col">
+                    <img class="card-img" src="https://i.pinimg.com/736x/67/2f/15/672f15e37a07b1032f1c268f2898db29.jpg" height="350" Width="500" />
+                    <h4 class="dark">শুভ মহাষষ্ঠী</h4>
+                    <p class="font-color">
+                        ২২শে আশ্বিন, 9 ই অক্টোবর, ২০২৪ বুধবার সূর্যোদয় ৫ টা ১০ মি, সূর্যাস্ত ৫ টা ৩৩ মি, পূর্ণিমা তিথি ৭ টা ১২ পর্যন্ত সায়ংকালে শ্রীশ্রী শারদীয়া দুর্গাপূজার বোধন।
+
+
+
+                    </p>
+                    <a href="https://bangla.hindustantimes.com/astrology/durga-puja-maha-shashthi-rules-rituals-significance-timings-and-meaning-of-akal-bodhon-31633916849164.html" class="ctn">বিস্তারিত জানুন</a>
+                </article>
+                <article class="card col">
+                    <img class="card-img" src="https://i.pinimg.com/736x/30/dc/13/30dc13ab40d2f4a20ee41321abe0edbc.jpg" height="350" Width="500" />
+
+                    <h4 class="dark"> শুভ মহাসপ্তমী</h4>
+                    <p class="font-color">
+                        ২৩শে আশ্বিন, 10ই অক্টোবর, ২০২৪ বৃহস্পতিবার সূর্যোদয় ৫ টা ১০ মি, সূর্যাস্ত ৫ টা ৩২ মি, সপ্তমী তিথি ৯ টা ৫৩ পর্যন্ত | পূজারম্ভ: ভোর ৪ ঘন্টা ৪৫ মিনিট, পুষ্পাঞ্জলী: সকাল ৯ ঘন্টা ৩০ মিনিট।
+                    </p>
+                    <a href="https://bangla.aajtak.in/dharm-religion/festivals/story/durga-puja-maha-saptami-nabapatrika-snan-kola-bou-snan-rituals-significance-importance-timing-bengali-saptamir-nirghanta-durga-saptami-fixture-soc-697239-2023-10-19" class="ctn">বিস্তারিত জানুন</a>
+                </article>
+                <article class="card col">
+                    <img class="card-img" src="https://png.pngtree.com/png-clipart/20211009/original/pngtree-durga-puja-subho-maha-ashtami-bengali-calligraphy-png-image_6848121.png" height="350" Width="500" />
+
+                    <h4 class="dark">শুভ মহাঅষ্টমী</h4>
+                    <p class="font-color">
+                        ২৪ শে আশ্বিন, 11ই অক্টোবর, ২০২৪ শুক্রবার সূর্যোদয় ৫ টা ১০ মি,সূর্যাস্ত ৫ টা ৩২ মি,মহাষ্টমী তিথি ৯ টা ৪৩ পর্যন্ত|পূজারম্ভ: ভোর ৪ ঘন্টা ৪৫ মিনিট,পুষ্পাঞ্জলী: সকাল ৯ ঘন্টা ৩০ মিনিট।</p>
+                    <a href="https://bangla.aajtak.in/lifestyle/story/durga-ashtami-2021-subho-maha-ashtami-wishes-images-messages-quotes-wallpapers-whatsapp-facebook-status-bengali-soc-304984-2021-10-13" class="ctn">বিস্তারিত জানুন</a>
+                </article>
+                <article class="card col">
+                    <img class="card-img" src="https://png.pngtree.com/png-vector/20220923/ourmid/pngtree-durga-puja-subho-maha-navami-bangla-typography-png-image_6212528.png" height="350" Width="500" />
+
+                    <h4 class="dark">শুভ মহানবমী</h4>
+                    <p class="font-color">
+                        ২৫শে আশ্বিন, 12ই অক্টোবর, ২০২৪ শনিবার       সূর্যোদয় ৫ টা ১০ মি, সূর্যাস্ত ৫ টা ৩২ মি, নবমী তিথি ১২ টা ৫৩ পর্যন্ত নবমী সন্ধ্যাবন্ধনে দুর্গাপূজা।
+
+
+
+                    </p>
+                    <a href="https://bengali.abplive.com/lifestyle/maha-navami-2023-wishes-and-messages-in-bengali-for-facebook-greetings-whatsapp-status-1018499" class="ctn">বিস্তারিত জানুন</a>
+                </article>
+                <article class="card col">
+                    <img class="card-img" src="https://png.pngtree.com/png-clipart/20220930/original/pngtree-subho-bijoya-durga-puja-festival-of-india-bangla-calligraphy-creative-art-png-image_8644922.png" height="350" Width="500" />
+
+                    <h4 class="dark">শুভ বিজয়া দশমী</h4>
+                    <p class="font-color">
+                        ২৫শে আশ্বিন, 12ই অক্টোবর, ২০২৪ শনিবার সূর্যোদয় ৫ টা ১০ মি, সূর্যাস্ত ৫ টা ৩১ মি, দশমী তিথি ৮ টা ৩০ মিনিট পর্যন্ত দেবীর বিসর্জন ও দশমী পূজা।
+
+
+
+                    </p>
+                    <a href="#" class="ctn">বিস্তারিত জানুন</a>
+                </article>
+            </div>
+        </div>
+    </section>
+    <!--Events-->
+
+    <!--Explore-->
+    <section class="explore" id="explore">
+        <div class="explore-content">
+            <h1>EXPLORE THE FESTIVE SEASON WITH BANKURA</h1>
+            <div class="line"></div>
+            <p>
+                “Travel makes one modest. You see what a tiny place you occupy in the world.”– Gustav Flaubert <br />Exploring will make you want to pack your bag, book that ticket and jet away.
+            </p>
+            <a href="#" class="ctn">Explore more</a>
+        </div>
+    </section>
+    <!--Explore-->
+
+    <!--tours-->
+    <section class="tours" id="tours">
+        <div class="container row">
+            <div class="col content-col">
+                <h1 class="font-color">See The Detailed Places To Visit </h1>
+                <div class="line"></div>
+                <h3> বাঁকুড়া জেলার সমস্ত দুর্গোৎসব এবং তাদের বিবরণ দেখতে <br>নীচের সুইচটিতে ক্লিক করুন 🙏🏻||
+
+
+                </h3>
+                <a href="Durga puja list.htm" class="ctn">বিস্তারিত জানুন</a>
+            </div>
+            <div class="image-col">
+                <div class="image-gallery">
+
+
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Front_View_of_Cellular_Jail%2C_Port_Blair.JPG" alt="" />
+                    <img src="https://static.tnn.in/photo/msid-94629029/94629029.jpg" alt="" />
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1rZWSGlz-V4JwTaEE2bZ0tDbLC5QiELuAVg&s" />
+                    <img src="img/Screenshot 2024-09-19 221803.png" alt="" />
+                </div>
+            </div>
+        </div>
+        <br /><br /><br /><br />
+    </section>
+    <!--tours-->
+
+    <!-- About -->
+    <section id="about">
+        <div class="title">
+            <h1 class="font-color">•এক নজরে সেরার সেরা👑•</h1>
+            <div class="line"></div>
+        </div>
+        <br />
+        <div id="about_us">
+            <div class="boxx">
+                <div class="containerx">
+                    <input type="radio" name="slider" id="item-1" checked />
+                    <input type="radio" name="slider" id="item-2" />
+                    <input type="radio" name="slider" id="item-3" />
+                    <div class="cards">
+                        <label class="cardt" for="item-1" id="col-img-1">
+                                <img src="img/Untitled design.jpg"  />
+                            </label>
+                        <label class="cardt" for="item-2" id="col-img-2">
+                                <img src="img/Untitled design.jpg" />
+                            </label>
+                        <label class="cardt" for="item-3" id="col-img-3">
+                                <img src="img/Untitled design.jpg" />
+                            </label>
+
+                    </div>
+                </div>
+                <span id="about-quad"><a href="#home"
+                            ><center>
+                                <h1
+                                    style="
+                                        font-family: var(--ff-montserrat);
+                                        color: white;
+                                    "
+                                >
+                                    Find that
+                                </h1>
+                                <br />
+                                <img
+                                    class="img2"
+                                    src="./img/mountain_dark.jpg"
+                                    width="200"
+                                    style="border-radius: 12%"
+                                />
+                                <br />
+                                <h1 class="logo" style="font-size: 50px">
+                                    দুর্গোৎসব ২০২৪                                </h1>
+                            </center>
+                        </a>
+                    </span>
+            </div>
+        </div>
+    </section>
+    <!-- About -->
+
+    <!-- contact -->
+    <section id="contact">
+        <div class="title">
+            <h1 class="font-color">Contact Us</h1>
+            <div class="line"></div>
+        </div>
+        <div class="contact_us">
+            <form class="cform" action="https://formspree.io/f/xwpegvqw" method="POST">
+                <div class="crow-message">
+                    <h1 class="color">Send us a message</h1>
+                    <div></div>
+                </div>
+                <div class="crow-in">
+                    <input type="text" id="name" name="name" placeholder="Your name" />
+                    <input type="text" id="email" name="email" placeholder="Your Email id" />
+                </div>
+                <div class="crow">
+                    <div class="ccol-left">
+                        <select name="country" id="country">
+                                <option value="India">West Bengal</option>
+                                <option value="India">Bihar</option>
+                                <option value="India">Jharkhand</option>
+                                <option value="India">Odisha</option>
+                                <option value="India">AndhraPradesh</option>
+                                <option value="India">Sikkim</option>
+                                <option value="India">Chhattisgarh</option>
+                                <option value="India">Madhyapradesh</option>
+                                <option value="India">Uttarpradesh</option>
+                                <option value="India">Punjab</option>
+                                <option value="India">Gujrat</option>
+                                <option value="India">Maharashtra</option>
+                                <option value="India">Kerala</option>
+                                <option value="India">Tamilnadu</option>
+                                <option value="India">J & K</option>
+                                <option value="India">Harayana</option>
+                                <option value="India">Karnataka</option>
+                                <option value="India">Uttarakhand</option>
+                                <option value="India">Himachalpradesh</option>
+                                <option value="India">Tripura</option>
+                                <option value="India">Assam</option>
+                                <option value="India">Mijoram</option>
+                                <option value="India">Arunachalpradesh</option>
+                                <option value="India">Meghalaya</option>
+                                <option value="India">Nagaland</option>
+                                <option value="India">Manipur</option>
+                                <option value="India">Delhi</option>
+                                <option value="India">Goa</option>
+                               
+                            </select>
+                    </div>
+                </div>
+                <div class="crow">
+                    <div class="ccol-left">
+                        <textarea type="text" id="remarks" name="remarks" placeholder="Your Remarks....." style="height: 150px"></textarea>
+                    </div>
+                </div>
+                <input class="crow-s" type="submit" value="Submit" />
+            </form>
+            <div class="cbox">
+                <div>
+                    <p class="cbox-message">
+                        Prefer some other way ?<br />Reach us by using the details given below
+                    </p>
+                    <div class="cbox-line"></div>
+                </div>
+                <div class="c_boxx">
+                    <a href="mailto:dasdesigns.2024@gmail.com"><i class="fa fa-envelope"></i>
+                            Mail: dasdesigns.2024@gmail.com
+                        </a>
+                </div>
+                <div class="c_boxx">
+                    <a href="tel:+91-12345-67890"><i class="fa fa-phone"></i>
+                            Phone: (+91) **** *** 442
+                        </a>
+                </div>
+                <div class="c_boxx">
+                    <a href="https://www.google.com/maps/place/Bankura,+West+Bengal/data=!4m2!3m1!1s0x39f7a58c5fc2b411:0xfdbd0b45c0b4aa70?sa=X&ved=1t:242&ictx=111"><i class="fa fa-map-marker"></i>
+                            Location: Bankura,West Bengal,India
+                        </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- contact  -->
+    <!-- up scroll -->
+    <i class="arrow" onclick="topFunction()" id="upbtn"></i>
+    <!-- end -->
+    <!--footer-->
+    <section class="footer">
+        <span>Created By Sourasish Das | &#169; 2024 All rights
+                reserved.</span
+            >
+            <div class="social">
+                <li>
+                    <a
+                        href="https://sourasishprotofilcoderhub.netlify.app/"
+                        target="_blank"
+                        rel="noreferrer"
+                        ><i class="fa fa-globe"></i
+                    ></a>
+                    <a
+                        href="https://github.com/Coder-Sourasish"
+                        target="_blank"
+                        rel="noreferrer"
+                        ><i class="fa fa-github"></i
+                    ></a>
+                    <a
+                        href="https://www.linkedin.com/in/sourasish-das-b8a3752a2/"
+                        target="_blank"
+                        rel="noreferrer"
+                        ><i class="fa fa-linkedin-square"></i
+                    ></a>
+                </li>
+            </div>
+        </section>
+        <!--footer-->
+
+        <script>
+            const menuBtn = document.querySelector(".menu-btn");
+            const navlinks = document.querySelector(".nav-links");
+
+            menuBtn.addEventListener("click", () => {
+                navlinks.classList.toggle("mobile-menu");
+            });
+        </script>
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>

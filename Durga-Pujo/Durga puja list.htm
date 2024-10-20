@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>প্যান্ডেলের বিবরণ (details)</title>
+
+    <!-- Google Fonts for an elegant Bengali typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Noto+Serif+Bengali:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Inline CSS with transparency, background image, and styles -->
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Jost', sans-serif;
+            background: url('https://english.cdn.zeenews.com/sites/default/files/2021/10/12/978709-durga-ranchi.jpg') no-repeat center center fixed;
+            /* Add your background image here */
+            background-size: cover;
+            color: #fff;
+            line-height: 1.6;
+        }
+        /* Add a translucent dark overlay over the background for readability */
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            /* Dark transparent overlay */
+            z-index: -1;
+            /* Place the overlay behind content */
+        }
+        
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            /* Translucent black for header */
+            color: #ffd700;
+            /* Golden text */
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 1px solid #ffd700;
+            /* Add a golden line for separation */
+        }
+        
+        h1 {
+            font-size: 3em;
+            font-family: 'Noto Serif Bengali', serif;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        /* Tour Catalog Grid */
+        
+        .tour-catalog {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px 0;
+        }
+        /* Tour Card Styling with Transparent Effect */
+        
+        .tour-card {
+            background-color: rgba(255, 255, 255, 0.15);
+            /* White with transparency */
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            /* Soft shadow */
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            /* Adds a blur effect for a sleek glassmorphism look */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .tour-card:hover {
+            transform: translateY(-10px);
+            /* Lift effect */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .tour-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .tour-card:hover img {
+            transform: scale(1.1);
+            /* Zoom-in effect */
+        }
+        
+        .tour-card h2 {
+            font-size: 1.8em;
+            font-family: 'Noto Serif Bengali', serif;
+            color: #ffd700;
+            /* Golden for elegance */
+            margin: 20px 10px 10px;
+            text-align: center;
+        }
+        
+        .tour-card p {
+            font-size: 1.1em;
+            margin: 0 15px 15px;
+            color: #e0e0e0;
+            /* Light text for readability */
+            text-align: justify;
+        }
+        
+        .location {
+            display: block;
+            font-size: 1em;
+            text-align: center;
+            color: #00aced;
+            /* Light blue for location */
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+        /* Footer */
+        
+        footer {
+            background: rgba(0, 0, 0, 0.7);
+            /* Translucent black for footer */
+            color: #ffd700;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 1px solid #ffd700;
+            /* Add golden line on top */
+        }
+        
+        footer p {
+            margin: 0;
+        }
+        /* Animations */
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Fade-in animation for tour cards */
+        
+        .tour-card {
+            animation: fadeInUp 0.8s ease-in-out;
+        }
+        /* Media Query for smaller screens */
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            .tour-card img {
+                height: 200px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2em;
+            }
+            .tour-card img {
+                height: 180px;
+            }
+        }
+    </style>
+    <style>
+        /* Style the play button */
+        
+        #playButton {
+            background-color: #f1a80b;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            color: #333;
+        }
+        /* Hide audio controls, but let the button control it */
+        
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Audio element with controls -->
+    <audio id="backgroundMusic" loop>
+    <source src="Durge Durge Durgatinashini_64(PagalWorld.com.sb).mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+    <!-- Play button -->
+    <center> <button id="playButton">Play Music</button>
+
+
+        <p>Click the button to play the background music!</p>
+    </center>
+
+    <script>
+        // JavaScript to handle the play button
+        const playButton = document.getElementById('playButton');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        //To Control the volume of the music 
+        backgroundMusic.volume = 0.2;
+        playButton.addEventListener('click', () => {
+            if (backgroundMusic.paused) {
+                backgroundMusic.play();
+                playButton.textContent = 'Pause Music';
+            } else {
+                backgroundMusic.pause();
+                playButton.textContent = 'Play Music';
+            }
+        });
+    </script>
+
+    <header>
+        <h1> <img src="img/ytawn.jpg-removebg-preview.png" height="50" width="100">আমাদের সাথে বাঁকুড়া ঘুরে দেখুন!</h1>
+    </header>
+
+    <main>
+        <section class="tour-catalog">
+            <!-- Tour 1 -->
+            <div class="tour-card">
+                <img src="https://images.news18.com/ibnlive/uploads/2022/09/3cecaf35-hero-image-70-16645243084x3.jpg?impolicy=website&width=640&height=480e" alt=" Bankura Pujo image">
+                <h2>Indaragora Hareswarmela Sarbojonin Durgotsav</h2>
+                <p>Theme : Waiting for announce </p>
+                <span class="location">
+                    <a href="https://www.google.com/maps/place/Indaragora+Hareswarmela+Durga+Puja/@23.2332292,87.0739762,15z/data=!4m14!1m7!3m6!1s0x39f7a592f5e2a95f:0xe44b25f55fe29153!2sIndaragora+Hareswarmela+Durga+Puja!8m2!3d23.2332292!4d87.0739762!16s%2Fg%2F11gdrpm3sb!3m5!1s0x39f7a592f5e2a95f:0xe44b25f55fe29153!8m2!3d23.2332292!4d87.0739762!16s%2Fg%2F11gdrpm3sb?entry=ttu&g_ep=EgoyMDI0MDkxOC4xIKXMDSoASAFQAw%3D%3D">Location</a>
+                </span>
+            </div>
+
+            <!-- Tour 2 -->
+            <div class="tour-card">
+                <img src="https://i.ytimg.com/vi/VWrY5KAmWAw/hqdefault.jpg" alt=" Bankura Pujo image">
+                <h2> Madhya Kenduadihi Sarbojanin Durga Puja</h2>
+                <p>Theme : Waiting for announce </p>
+                <span class="location">
+                    <a href="https://www.google.com/maps/place/Kenduadihi+Football+ground/@23.2390445,87.0400737,17z/data=!3m1!4b1!4m9!1m2!2m1!1sbankura+kenduadihi+high+school!3m5!1s0x39f7af7587a90eeb:0xa837ce95fc82844e!8m2!3d23.2390396!4d87.0449446!16s%2Fg%2F11k8471j66?entry=ttu&g_ep=EgoyMDI0MDkxOC4xIKXMDSoASAFQAw%3D%3D">Location</a>
+                </span>
+            </div>
+
+            <!-- Tour 3 -->
+            <div class="tour-card">
+                <img src="img/Screenshot 2024-09-23 140803.png" alt=" Bankura Pujo image">
+                <h2>Byaparihat Sarbajanin Durgotsav </h2>
+                <p>Theme : Waiting for announce </p>
+                <span class="location">
+                    <a href="https://www.google.com/maps/place/Baypari+Hat+Durga+Mandap/@23.2327928,87.0670971,16z/data=!4m10!1m2!2m1!1sbyapari+hat+bankura!3m6!1s0x39f7a58d9be850f7:0x2381eb09428afb1e!8m2!3d23.2326589!4d87.0715334!15sChNieWFwYXJpIGhhdCBiYW5rdXJhWhUiE2J5YXBhcmkgaGF0IGJhbmt1cmGSAQxoaW5kdV90ZW1wbGWaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTnBObkV0WkROM1JSQULgAQA!16s%2Fg%2F11bx4bfpm0?entry=ttu&g_ep=EgoyMDI0MDkxOC4xIKXMDSoASAFQAw%3D%3D">Location</a>
+                </span>
+            </div>
+        </section>
+
+    </main>
+    <main>
+        <section class="tour-catalog">
+            <!-- Tour 1 -->
+            <div class="tour-card">
+                <img src=" img\Intelsys img.png" alt=" Bankura Pujo image">
+                <h2>Kamrar math sarbajonin</h2>
+                <p>Theme : Waiting for announce </p>
+                <span class="location">
+                    <a href="https://www.google.com/maps/place/Kamrarmath+Cinemaroad+Sarbojanin+Durgotsav+Committee/@23.2299217,87.0737372,15z/data=!4m6!3m5!1s0x39f7a5918b56d6f1:0x7ad0cd143423a9e6!8m2!3d23.2299217!4d87.0737372!16s%2Fg%2F11gbp7wtgs?entry=ttu&g_ep=EgoyMDI0MDkxOC4xIKXMDSoASAFQAw%3D%3D">Location</a>
+                </span>
+            </div>
+
+            <!-- Tour 2 -->
+            <div class="tour-card">
+                <img src=" img\Intelsys img.png" alt=" Bankura Pujo image">
+                <h2>Cinema road Sarbajanin</h2>
+                <p>Theme : Waiting for announce </p>
+                <span class="location">
+                    <a href="https://www.google.com/maps/place/Kamrarmath+Cinemaroad+Sarbojanin+Durgotsav+Committee/@23.2298561,87.0738919,15z/data=!4m15!1m8!3m7!1s0x39f7a5918b56d6f1:0x7ad0cd143423a9e6!2sKamrarmath+Cinemaroad+Sarbojanin+Durgotsav+Committee!8m2!3d23.2299217!4d87.0737372!10e5!16s%2Fg%2F11gbp7wtgs!3m5!1s0x39f7a5918b56d6f1:0x7ad0cd143423a9e6!8m2!3d23.2299217!4d87.0737372!16s%2Fg%2F11gbp7wtgs?entry=ttu&g_ep=EgoyMDI0MDkyNC4wIKXMDSoASAFQAw%3D%3D">Location</a>
+                </span>
+            </div>
+
+            <!-- Tour 3 -->
+            <div class="tour-card">
+                <img src=" img\Intelsys img.png" alt=" Bankura Pujo image">
+                <h2>Sonali Abasan Durgotsav</h2>
+                <p>Theme : Waiting for announce </p>
+                <span class="location">
+                    <a href="https://www.google.com/maps/place/Sonali+Abason/@23.2291561,87.0748231,17z/data=!4m14!1m7!3m6!1s0x39f7a5914caba093:0x247658b141346db0!2sSonali+Abason!8m2!3d23.2291512!4d87.077398!16s%2Fg%2F12hpz98yk!3m5!1s0x39f7a5914caba093:0x247658b141346db0!8m2!3d23.2291512!4d87.077398!16s%2Fg%2F12hpz98yk?entry=ttu&g_ep=EgoyMDI0MDkyNC4wIKXMDSoASAFQAw%3D%3D">Location</a>
+                </span>
+            </div>
+        </section>
+
+    </main>
+
+    <main>
+        <section class="tour-catalog">
+            <!-- Tour 1 -->
+            <div class="tour-card">
+                <img src=" img\Intelsys img.png" alt=" Bankura Pujo image">
+                <h2>Lalbazar Sarbajanin </h2>
+                <p>Theme : Waiting for announce </p>
+                <span class="location">
+                    <a href="https://www.google.com/maps/place/Lalbazar+bus+stand/@23.2300766,87.0765483,17z/data=!4m14!1m7!3m6!1s0x39f7a5871a8495d1:0x8919157c49018104!2sLalbazar+bus+stand!8m2!3d23.2300717!4d87.0791232!16s%2Fg%2F11hdrrp778!3m5!1s0x39f7a5871a8495d1:0x8919157c49018104!8m2!3d23.2300717!4d87.0791232!16s%2Fg%2F11hdrrp778?entry=ttu&g_ep=EgoyMDI0MDkyNC4wIKXMDSoASAFQAw%3D%3D">Location</a>
+                </span>
+            </div>
+
+            <!-- Tour 2 -->
+            <div class="tour-card">
+                <img src=" img\Intelsys img.png" alt=" Bankura Pujo image">
+                <h2>Keranibandh Durga Mandap</h2>
+                <p>Theme : Waiting for announce </p>
+                <span class="location">
+                    <a href="https://www.google.com/maps/place/Keranibandh+Durga+Mandap/@23.2259063,87.0802033,17z/data=!3m1!4b1!4m6!3m5!1s0x39f7a57acd6f0803:0xa5eec6dcdca7a1a9!8m2!3d23.2259014!4d87.0827782!16s%2Fg%2F11fnrtp7gs?entry=ttu&g_ep=EgoyMDI0MDkyNC4wIKXMDSoASAFQAw%3D%3D">Location</a>
+                </span>
+            </div>
+
+            <!-- Tour 3 -->
+            <div class="tour-card">
+                <img src=" img\Intelsys img.png" alt=" Bankura Pujo image">
+                <h2>Boro-sholoana - Barazar</h2>
+                <p>Theme : Waiting for announce </p>
+                <span class="location">
+                    <a href="https://www.google.com/maps/place/Bara+Soloana+Durga+Mandir/@23.2344045,87.0679278,17z/data=!3m1!4b1!4m6!3m5!1s0x39f7a576db0b4607:0x48c0e99897ea9f10!8m2!3d23.2343996!4d87.0705027!16s%2Fg%2F11ghwdqj8s?entry=ttu&g_ep=EgoyMDI0MDkyNC4wIKXMDSoASAFQAw%3D%3D"></a>
+                </span>
+            </div>
+        </section>
+
+    </main>
+    <main>
+        <section class="tour-catalog">
+            <!-- Tour 1 -->
+            <div class="tour-card">
+                <img src=" img\Intelsys img.png" alt=" Bankura Pujo image">
+                <h2>Asthadhatu Durga mela</h2>
+                <p>Theme : Waiting for announce </p>
+                <span class="location">
+                    <a href="https://www.google.com/maps/place/Bankura+Ankur+Academy/@23.2354238,87.0710762,21z/data=!4m6!3m5!1s0x39f7a592a83606c3:0xfe2dd68c0f79eab7!8m2!3d23.2353803!4d87.071263!16s%2Fg%2F11gff2_fxq?entry=ttu&g_ep=EgoyMDI0MDkyNC4wIKXMDSoASAFQAw%3D%3D">Location</a>
+                </span>
+            </div>
+
+            <!-- Tour 2 -->
+            <div class="tour-card">
+                <img src=" img\Intelsys img.png" alt=" Bankura Pujo image">
+                <h2>Dasherbandh Sarbajanin Durgotsav puja</h2>
+                <p>Theme : Waiting for announce </p>
+                <span class="location">
+                    <a href="https://www.google.com/maps/place/Dasher+Bandh+Sarbojanin+Durga+Puja/@23.2336706,87.0643333,17z/data=!3m1!4b1!4m6!3m5!1s0x39f7a53817e0e699:0x276368bd6e50763e!8m2!3d23.2336657!4d87.0669082!16s%2Fg%2F11j0hbb_nl?entry=ttu&g_ep=EgoyMDI0MDkyNC4wIKXMDSoASAFQAw%3D%3D">Location</a>
+                </span>
+            </div>
+
+            <!-- Tour 3 -->
+            <div class="tour-card">
+                <img src=" img\Intelsys img.png" alt=" Bankura Pujo image">
+                <h2>Machantala Sarbajanin</h2>
+                <p>Theme : Waiting for announce </p>
+                <span class="location">
+                    <a href="https://www.google.com/maps/place/Machantala+Watch+Tower/@23.2350983,87.0634354,17z/data=!3m1!4b1!4m6!3m5!1s0x39f7a5acbaa8923b:0x7fe30b3b7cd7547b!8m2!3d23.2350934!4d87.0660103!16s%2Fg%2F11f5_l38yb?entry=ttu&g_ep=EgoyMDI0MDkyNC4wIKXMDSoASAFQAw%3D%3D">Location</a>
+                </span>
+            </div>
+        </section>
+
+    </main>
+    <main>
+        <section class="tour-catalog">
+            <!-- Tour 1 -->
+            <div class="tour-card">
+                <img src=" img\Intelsys img.png" alt=" Bankura Pujo image">
+                <h2>Pranabanda Pally Sarbajanin </h2>
+                <p>Theme : Waiting for announce </p>
+                <span class="location">
+                    <a href="https://www.google.com/maps/place/Pranabananda+Pally+Sarbojonin+Durgotsav/@23.2379453,87.0345738,17z/data=!4m14!1m7!3m6!1s0x39f7af3e50f8fd21:0xed1bb45bdde1df9c!2sPranabananda+Pally+Sarbojonin+Durgotsav!8m2!3d23.2379404!4d87.0394447!16s%2Fg%2F11g02bc5b8!3m5!1s0x39f7af3e50f8fd21:0xed1bb45bdde1df9c!8m2!3d23.2379404!4d87.0394447!16s%2Fg%2F11g02bc5b8?entry=ttu&g_ep=EgoyMDI0MDkyNC4wIKXMDSoASAFQAw%3D%3D">Location</a>
+                </span>
+            </div>
+
+            <!-- Tour 2 -->
+            <div class="tour-card">
+                <img src=" img\Intelsys img.png" alt=" Bankura Pujo image">
+                <h2>Puabagan Durga Mandir</h2>
+                <p>Theme : Waiting for announce </p>
+                <span class="location">
+                    <a href="https://www.google.com/maps/place/Puabagan+Durga+Temple/@23.206362,87.0171899,17z/data=!4m14!1m7!3m6!1s0x39f7af99b677d2cf:0x92391da23ec405cf!2sPuabagan+Durga+Temple!8m2!3d23.2063571!4d87.0197648!16s%2Fg%2F11ff0b33kf!3m5!1s0x39f7af99b677d2cf:0x92391da23ec405cf!8m2!3d23.2063571!4d87.0197648!16s%2Fg%2F11ff0b33kf?entry=ttu&g_ep=EgoyMDI0MDkyNC4wIKXMDSoASAFQAw%3D%3D">Location</a>
+                </span>
+            </div>
+
+            <!-- Tour 3 -->
+            <div class="tour-card">
+                <img src=" img\Intelsys img.png" alt=" Bankura Pujo image">
+                <h2>Nutanchati Pushkarini Durga Mandir </h2>
+                <p>Theme : Waiting for announce </p>
+                <span class="location">
+                    <a href="https://www.google.com/maps/place/Durga+Mandir+Pushkarini/@23.2441576,87.0485483,17z/data=!4m14!1m7!3m6!1s0x39f7af6dc7e7a44d:0xd02c006656f7fbd2!2sDurga+Mandir+Pushkarini!8m2!3d23.2438722!4d87.0482967!16s%2Fg%2F11r8t2nlf6!3m5!1s0x39f7af6dc7e7a44d:0xd02c006656f7fbd2!8m2!3d23.2438722!4d87.0482967!16s%2Fg%2F11r8t2nlf6?entry=ttu&g_ep=EgoyMDI0MDkyNC4wIKXMDSoASAFQAw%3D%3D">Location</a>
+                </span>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p> যোগাযোগ করুন:</p><a href="mailto:dasdesigns.2024@gmail.com"><i class="fa fa-envelope"></i>
+             dasdesigns.2024.com |
+        </a>| ফোন: +91 **** *** 442</p>
+    </footer>
+
+</body>
+
+</html>
